@@ -1,0 +1,224 @@
+/* ПОДКЛЮЧЕНИЕ СБРОСА СТИЛЕЙ */
+@import url("reset.css");
+
+/* ПОДКЛЮЧЕНИЕ ШРИФТОВ */
+
+@font-face {
+    font-family: "Roboto";
+    src: local("Roboto-Regular"),
+        url("../fonts/Roboto-Regular/Roboto-Regular.woff2") format("woff2"),
+        url("../fonts/Roboto-Regular/Roboto-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Не работает */
+@font-face {
+    font-family: "Baloo Bhaijaan 2";
+    src: local("BalooBhaijaan2-Regular"),
+        url("../fonts/BalooBhaijaan2/BalooBhaijaan2-Regular.woff2") format("woff2"),
+        url("../fonts/BalooBhaijaan2/BalooBhaijaan2-Regular.woff") format("woff");
+    font-weight:normal;
+    font-style: normal;
+    font-display: swap;
+} 
+
+@font-face {
+    font-family: "Comfortaa";
+    src: local("Comfortaa-Bold"),
+        url("../fonts/Comfortaa-Bold/Comfortaa-Bold.woff2") format("woff2"),
+        url("../fonts/Comfortaa-Bold/Comfortaa-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Play";
+    src: local("Play-Regular"),
+        url("../fonts/Play-Regular/Play-Regular.woff2") format("woff2"),
+        url("../fonts/Play-Regular/Play-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Play";
+    src: local("Play-Bold"),
+        url("../fonts/Play-Bold/Play-Bold.woff2") format("woff2"),
+        url("../fonts/Play-Bold/Play-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: local("Inter-Regular"),
+        url("../fonts/Inter-Regular/Inter-Regular.woff2") format("woff2"),
+        url("../fonts/Inter-Regular/Inter-Regular.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: local("Inter-SemiBold"),
+        url("../fonts/Inter-SemiBold/Inter-SemiBold.woff2") format("woff2"),
+        url("../fonts/Inter-SemiBold/Inter-SemiBold.woff") format("woff");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inter";
+    src: local("Inter-Bold"),
+        url("../fonts/Inter-Bold/Inter-Bold.woff2") format("woff2"),
+        url("../fonts/Inter-Bold/Inter-Bold.woff") format("woff");
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+
+/* --------------------------------------------------------- */
+
+
+/* БАЗОВЫЕ СТИЛИ */
+
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+:root {
+    /* Шрифты */
+    --play-family: "Play", sans-serif;
+    --roboto-family: "Roboto", sans-serif;
+    --baloo-family: "Baloo Bhaijaan", sans-serif;
+    --inter-family: "Inter", sans-serif;
+    --comfortaa-family: "Comfortaa", sans-serif;
+
+    --gap: 24px;
+}
+
+.page {
+    min-width: 320px;
+
+    font-family:var(--roboto-family);
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 100%;
+    color: #101820;
+}
+/* --------------------------------------------------------- */
+
+/* ОСНОВНЫЕ СТИЛИ ДЛЯ ОБЩИХ ЭЛЕМЕНТОВ */
+
+.container {
+    max-width: 1830px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+.container__small{
+    max-width: 1350px;
+    width: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+
+.btn-reset {
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+
+
+.section-title {
+    color: #000;
+
+    font-family: Play;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase; 
+}
+
+.section-padding{
+
+}
+
+.section-descr {
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0.48px;
+    text-align: justify;
+    color: #000;
+}
+.section-descr-2{
+    font-family: Roboto;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0.48px; 
+    color:  #101820;
+}
+
+
+
+.section-offset {
+    margin-bottom: 80px;
+}
+
+.btn {
+    
+}
+.btn__dark{
+    padding: 12px 42px;
+    border-radius: 8px;
+
+    font-family: Roboto;
+    font-size: 24px; 
+
+    background: #2B2B2B; 
+    color: #FAFAFA;
+}
+
+.stop-scroll{
+    overflow: hidden;
+}
+
+/* --------------------------------------------------------- */
+
+.hide-block{
+    display: none !important;
+}

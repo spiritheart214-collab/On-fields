@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+    Самоучитель - подсекции
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'tutorials\css\selflearn.css' %}"> 
+    <link rel="stylesheet" href="{% static 'tutorials\css\selflearn-in.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css\blocks\pages-nav.css' %}">
+{% endblock styles %}
+
+{% block scripts %}
+
+{% endblock scripts %}
+    
+
+{% block main %}
+    <section class="selfEducation section-offset">
+
+        <div class="container">
+
+            <div class="selfEducation__wrapper">
+
+                <h2 class="selfEducation__title">{{ tutorial.title }}</h2>
+                <p class="selfEducation__descr section-descr lesson__offset">
+                    {{ tutorial.descr}}
+                </p>
+            </div>
+
+            {% if subsections %}
+                <ul class="lesson__list">
+                    {% for subsection in subsections %}
+                        <li class="lesson__item">
+                            <h3 class="lesson__title section-title">{{ subsection.title }}</h3>
+
+                            <p class="lesson__descr section-descr">
+                                {{ subsection.short_descr }}
+                            </p>
+
+                            <a href="{% url 'index:tutorials:articles-list' slug_tutorial=tutorial.slug_tutorial slug_sub_tutorial=subsection.slug_sub_tutorial %}">
+                                <button class="lesson__btn btn btn__dark">Перейти учиться</button>
+                            </a>
+                            
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h3>No tutorials yet</h3>
+            {% endif %}
+            
+            {% comment %} {% include  'pagination.html' %} {% endcomment %}
+
+        </div>
+
+    </section>
+{% endblock main %}

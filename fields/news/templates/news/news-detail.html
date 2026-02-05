@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+    Самоучитель - статьи
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'news\css\news-detail.css' %}">
+{% endblock styles %}
+    
+{% block scripts %}
+
+{% endblock scripts %}
+
+{% block main %}
+    <section class="hero section-offset">
+        <div class="container">
+            <div class="hero__wapper">
+                <img src="{{ article.photo.url }}" class="hero__bg-image" alt="bg_img">
+                <h1 class="hero__title one-news__title">{{article.title}}</h1>
+                <p class="hero__descr one-news__descr">{{article.short_descr}}</p>
+                <div class="topic">
+                    <div class="topic__name">{{ short_title }}</div>
+                    <time class="topic__date">{{ article.pub_date }}</time>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="info section-offset">
+        <div class="container__small">
+            <p class="info__txt section-descr"> {{ article.descr | safe }} </p>
+        </div>
+    </section>
+{% endblock main %}

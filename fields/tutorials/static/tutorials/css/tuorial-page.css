@@ -1,0 +1,31 @@
+.tutorial-info__title{
+    color: var(--black, #101820);
+    text-align: center;
+    /* h2 */
+    font-family: Play;
+    font-size: 44px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: uppercase; 
+}
+
+.tutorial-info__nav{
+    display: flex;
+    gap: 40px;
+    margin-bottom: 140px;
+}
+
+.btn1{
+    padding: 12px 42px;
+    border-radius: 8px;
+
+    font-family: Roboto;
+    font-size: 24px; 
+
+    background: #FAFAFA; 
+    color:#2B2B2B ;
+
+    border-radius: 8px;
+    border: 1px solid #2B2B2B; 
+}

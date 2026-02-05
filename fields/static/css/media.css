@@ -1,0 +1,753 @@
+.footer__copyright--2 {
+    display: none;
+}
+
+.one-news__title {
+    max-width: 100% !important;
+}
+
+.news__wrapper {
+    grid-template-columns: minmax(438px, 645px) minmax(438px, 645px) minmax(234px, 450px);
+}
+
+.questions__wrapper {
+    grid-template-columns: minmax(600px, 1320px) minmax(163px, 326px);
+    gap: 30px;
+}
+
+@media(max-width : 1600px) {
+    .hero__wrapper {
+        align-items: center;
+        justify-content: space-between;
+        gap: 5px;
+    }
+
+    .hero__img {
+        max-width: 30%;
+        max-height: 30%;
+    }
+}
+
+@media(max-width : 1440px) {
+    .news {
+        grid-template-columns: repeat(2, minmax(296px, 645px));
+    }
+
+    .tutorials__wrapper {
+        grid-template-columns: minmax(600px, 1320px) 350px;
+    }
+
+    .tutor-card__img,
+    .course__img {
+        display: none;
+    }
+
+    .about-project__wrapper {
+        grid-template-columns: minmax(370px, 870px) minmax(150px, 450px);
+    }
+
+    .hero__img {
+        max-width: 30%;
+        max-height: 30%;
+    }
+
+    .hero__title {
+        max-width: 700px;
+        font-size: 42px;
+        padding-bottom: 40px;
+    }
+
+    .about-project__title {
+        text-align: right;
+    }
+
+    .questions__title,
+    .tutorials__title,
+    .news__title {
+        text-align: center;
+    }
+
+    .section-title {
+        font-size: 42px;
+    }
+
+    .hero-descr {
+        max-width: 700px
+    }
+
+    .section-descr,
+    .section-descr-2 {
+        font-size: 18px;
+    }
+
+    .footer__wrapper {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .form {
+        max-width: 455px;
+    }
+
+    .form__input {
+        width: 455px;
+    }
+}
+
+@media(max-width : 1366px) {
+    .form {
+        max-width: 355px;
+    }
+
+    .form__input {
+        width: 355px;
+    }
+
+    .form__btn {
+        font-size: 24px;
+    }
+}
+
+@media(max-width : 1200px) {
+    .one-news__title {
+        margin-top: 40px;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    .accordion__list {
+        gap: 22px;
+    }
+
+    .news {
+        gap: 20px;
+    }
+
+    .news__wrapper {
+        grid-template-columns: minmax(438px, 645px) minmax(234px, 450px);
+        gap: 24px;
+    }
+
+    .news__wrapper .news-card:nth-child(3) {
+        grid-column: 1/2;
+
+    }
+
+    .news__wrapper .news-card:nth-child(4) {
+        grid-column: 1/2;
+    }
+
+    .news__wrapper .news-card:nth-child(6) {
+        grid-column: 1/2;
+    }
+
+    .news__title {
+        grid-column-start: 2;
+        grid-row-start: 1;
+    }
+
+    .lesson__circle {
+        width: 10px;
+        height: 10px;
+    }
+
+    .lesson__list {
+        gap: 22px;
+        margin-bottom: 20px;
+    }
+
+    .lesson__item {
+        padding: 30px 25px;
+    }
+
+    .lesson__title {
+        margin-bottom: 14px;
+    }
+
+    .lesson__datetime-wrapper {
+        margin-bottom: 22px;
+    }
+
+    .lesson__descr {
+        margin-bottom: 30px;
+    }
+
+    .footer__links-block {
+        max-width: 300px;
+    }
+
+    .form {
+        max-width: 300px;
+    }
+
+    .form__input {
+        width: 300px;
+    }
+}
+
+@media(max-width : 992px) {
+    .tutorial-info__btn {
+        font-size: 18px;
+        padding: 10px 20px;
+    }
+
+    .tutorial-info__nav {
+        gap: 0;
+        justify-content: space-between;
+    }
+
+    .questions__wrapper {
+        grid-template-columns: minmax(297px, 1320px) 163px;
+        gap: 10px;
+    }
+
+    .accordion {
+        padding: 20px;
+    }
+
+    .news {
+        gap: 15px;
+    }
+
+    .news__wrapper {
+        grid-template-columns: minmax(296px, 438px) 234px;
+        justify-content: space-between;
+    }
+
+    .news-card {
+        height: 372px;
+    }
+
+    .news-page__title {
+        max-width: 100%;
+    }
+
+    .lesson__circle {
+        width: 8px;
+        height: 8px;
+    }
+
+    .pages-nav {
+        justify-content: center;
+    }
+
+    .lesson__list {
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+
+    .lesson__item {
+        padding: 20px 15px;
+    }
+
+    .lesson__title {
+        margin-bottom: 10px;
+    }
+
+    .lesson__datetime-wrapper {
+        margin-bottom: 12px;
+    }
+
+    .lesson__descr {
+        margin-bottom: 20px;
+    }
+
+    .footer__wrapper {
+        align-items: center;
+    }
+
+    .footer__pages {
+        max-width: 200px;
+        gap: 16px;
+    }
+
+    .footer__logo {
+        margin-bottom: 24px;
+        width: 174px;
+        height: 98px;
+    }
+
+    .footer__link:first-child {
+        margin-bottom: 8px;
+    }
+
+    .footer__link:last-child {
+        margin-top: 8px;
+    }
+
+    .footer__links-block {
+        max-width: 195px;
+    }
+
+    .form {
+        max-width: 195px;
+        gap: 12px;
+    }
+
+    .input {
+        height: 32px;
+        padding: 5px 0 5px 10px;
+    }
+
+    .textarea {
+        height: 74px;
+        padding: 5px 0 5px 10px;
+    }
+
+    .form__input {
+        width: 195px;
+    }
+
+    .form__btn {
+        padding: 5px 0;
+        margin-top: 0;
+        font-size: 18px;
+    }
+
+    .form__descr {
+        margin-bottom: 6px;
+    }
+
+    .footer__links {
+        margin-bottom: 30px;
+    }
+
+    .footer__link {
+        font-size: 18px;
+    }
+
+    .footer__descr {
+        font-size: 18px;
+    }
+
+    .tutorials__wrapper {
+        grid-template-columns: 489px 182px;
+    }
+
+    .tutor-card,
+    .course__item {
+        padding: 24px;
+    }
+
+    .tutor-card__title,
+    .course__title {
+        margin-bottom: 16px;
+    }
+
+    .tutor-card__descr,
+    .course__descr {
+        margin-bottom: 24px;
+    }
+
+    .course__btn,
+    .tutor-card__btn,
+    .lesson__btn,
+    .news-card__btn {
+        font-size: 14px;
+    }
+
+    .hero__title,
+    .selfEducation__title {
+        max-width: 537px;
+        font-size: 32px;
+    }
+
+    .info__subtitle {
+        font-size: 18px;
+    }
+
+    .tutorial-info__title {
+        font-size: 32px;
+    }
+
+    .hero-descr {
+        max-width: 537px
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .section-descr,
+    .section-descr-2 {
+        font-size: 12px;
+    }
+
+    .tutorials__btn,
+    .news__btn {
+        font-size: 18px;
+    }
+}
+
+@media(max-width : 768px) {
+    .js-validate-error-label {
+        font-size: 16px;
+    }
+
+    .tutorial-info__nav {
+        margin-bottom: 40px;
+    }
+
+    .tutorial-info__btn {
+        font-size: 16px;
+    }
+
+    .one-news__descr {
+        margin-bottom: 27px;
+    }
+
+    .one-news__descr,
+    .topic__name,
+    .topic__date {
+        font-size: 18px;
+    }
+
+    .news {
+        grid-template-columns: minmax(296px, 645px);
+    }
+
+    .news-card,
+    .news-card:nth-child(3),
+    .news-card:nth-child(6) {
+        grid-column: 1/2;
+    }
+
+    .lesson__circle {
+        width: 5px;
+        height: 5px;
+    }
+
+    .accordion {
+        padding: 10px;
+    }
+
+    .footer__links-block {
+        max-width: 130px;
+    }
+
+    .course__btn,
+    .tutor-card__btn,
+    .lesson__btn,
+    .news-card__btn {
+        font-size: 12px;
+    }
+
+    .tutorials__wrapper {
+        grid-template-columns: 100% 0px;
+        gap: 16px;
+    }
+
+    .tutorials__title {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        gap: 16px;
+    }
+
+    .tutorials__content {
+        grid-row: 2/3;
+    }
+
+    .about-project__content {
+        gap: 12px;
+    }
+
+    .about-project__wrapper {
+        grid-template-columns: minmax(295px, 336px) 200px;
+    }
+
+    .questions__title,
+    .about-project__title {
+        text-align: right;
+    }
+
+    .hero__title,
+    .selfEducation__title {
+        max-width: 337px;
+        font-size: 32px;
+    }
+
+    .tutorial-info__title {
+        font-size: 32px;
+    }
+
+    .quote__author {
+        font-size: 16px;
+    }
+
+    .quote__img {
+        width: 32px;
+    }
+
+    .hero-descr {
+        max-width: 337px
+    }
+
+    .hero__img {
+        max-width: 39%;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .section-descr,
+    .section-descr-2 {
+        font-size: 12px;
+    }
+
+
+
+
+}
+
+@media(max-width : 577px) {
+    .tutorial-info__btn {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .info__subtitle {
+        margin-bottom: 12px;
+    }
+
+    .info__txt {
+        margin-bottom: 20px;
+    }
+
+    .hero__wapper {
+        padding: 20px 10px;
+    }
+
+    .one-news__title {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    .one-news__descr {
+        margin-bottom: 17px;
+    }
+
+    .one-news__descr,
+    .topic__name,
+    .topic__date {
+        font-size: 12px;
+    }
+
+    .topic__name,
+    .topic__date {
+        font-size: 10px;
+    }
+
+    .questions__wrapper {
+        grid-template-columns: minmax(297px, 1320px);
+        gap: 14px;
+    }
+
+    .questions__title {
+        grid-column: 1/2;
+        grid-row: 1/2;
+    }
+
+    .accordion__wrapper {
+        grid-row: 2/3;
+    }
+
+    .news {
+        grid-template-columns: minmax(296px, 645px);
+        gap: 10px;
+    }
+
+    .news__wrapper {
+        grid-template-columns: minmax(296px, 438px);
+        justify-content: center;
+        gap: 14px;
+    }
+
+    .news__btn {
+        grid-column: 1/2;
+    }
+
+    .tutorials__title {
+        text-align: right;
+    }
+
+    .news__title {
+        grid-column: 1/2;
+        grid-row: 1/2;
+        text-align: right;
+    }
+
+    .news__wrapper .news-card:nth-child(2) {
+        grid-column: 1/2;
+    }
+
+    .news-card {
+        height: 250px;
+    }
+
+    .section-offset {
+        margin-bottom: 40px;
+    }
+
+    .pages-nav {
+        align-items: center;
+        gap: 20px;
+    }
+
+    .pages-nav__list {
+        gap: 10px;
+    }
+
+    .pages-nav__arrow {
+        font-size: 12px;
+    }
+
+    .pages-nav__item {
+        font-size: 12px;
+        padding: 2px 4px;
+    }
+
+    .form {
+        max-width: 100%;
+    }
+
+    .form__input {
+        width: 100%;
+    }
+
+    .footer__links {
+        display: flex;
+        gap: 16px;
+        margin-bottom: 40px;
+        width: 128px;
+    }
+
+    .footer__wrapper {
+        flex-direction: column;
+    }
+
+    .footer__links-block {
+        max-width: 100%;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .footer__copyright--1 {
+        display: none;
+    }
+
+    .footer__copyright--2 {
+        display: block;
+        text-align: center;
+        margin-bottom: 24px;
+    }
+
+    .footer__link:first-child {
+        margin-bottom: 4px;
+    }
+
+    .footer__link:last-child {
+        margin-top: 4px;
+    }
+
+    .footer__pages {
+        gap: 12px;
+        margin-bottom: 24px;
+    }
+
+    .footer__logo {
+        width: 100px;
+        height: 56px;
+        margin-bottom: 16px;
+    }
+
+    /* .hero__wrapper{
+        flex-wrap: wrap;
+    } */
+    .course__btn,
+    .tutor-card__btn,
+    .lesson__btn {
+        width: 100%;
+    }
+
+    .about-project__wrapper {
+        grid-template-columns: minmax(295px, 336px) 100px;
+    }
+
+    .hero__content {
+        width: 100%;
+    }
+
+    .hero__title,
+    .selfEducation__title {
+        font-size: 27px;
+    }
+
+    .tutorial-info__title {
+        font-size: 27px;
+    }
+
+    .section-title {
+        font-size: 16px;
+    }
+
+    .section-descr,
+    .section-descr-2 {
+        font-size: 12px;
+    }
+
+    .tutorials__wrapper {
+        grid-template-columns: 100% 0px;
+        gap: 14px;
+    }
+
+    .tutorials__btn,
+    .news__btn {
+        font-size: 16px;
+    }
+}
+
+@media(max-width : 480px) {
+    .js-validate-error-label {
+        font-size: 10px;
+    }
+
+    .tutorials__btn,
+    .news__btn {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .about-project__wrapper {
+        grid-template-columns: 100% 0px;
+        gap: 16px;
+    }
+
+    .about-project__title {
+        grid-row: 1/2;
+        grid-column: 1/2;
+    }
+
+    .about-project__content {
+        grid-row: 2/3;
+    }
+
+    .hero__wrapper {
+        flex-wrap: wrap;
+    }
+
+    .hero__title {
+        max-width: 296px;
+    }
+
+    .hero-descr {
+        max-width: 296px
+    }
+
+    .hero__img {
+        max-width: 100%;
+    }
+}

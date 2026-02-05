@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+    Самоучителя
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'tutorials\css\tutorials.css' %}"> 
+{% endblock styles %}
+
+{% block scripts %}
+
+{% endblock scripts %}
+
+{% block main %}
+    <section class="selfEducation section-offset">
+        <div class="container">
+            <div class="selfEducation__wrapper">
+                <h2 class="selfEducation__title">Самоучители</h2>
+            </div>
+            {% if tutorials %}
+                <ul class="course__list">
+                    {% for tutorial in tutorials %}
+                        <li class="course__item">
+                            <div class="course__content">
+                                <h3 class="course__title section-title"> {{tutorial.title}} </h3>
+                                <p class="course__descr section-descr">
+                                    {{tutorial.short_descr}}
+                                </p>
+                                <a href="{% url 'index:tutorials:sub_tutorials' slug_tutorial=tutorial.slug_tutorial %}" class="course__link">
+                                    <button class="course__btn btn btn__dark">Перейти учиться</button>
+                                </a> 
+                            </div>
+                            <img src="{{ tutorial.photo.url }}" alt="" class="course__img">
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <h3>No tutorials yet</h3>
+            {% endif %}
+        </div>
+    </section>
+{% endblock main %}

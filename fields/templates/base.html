@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+
+    <html lang="ru">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            {% block title %}
+                Title
+            {% endblock title %}
+        </title>
+
+        <!-- ПОДКЛЮЧЕНИЕ FAVICON -->
+
+        <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon\apple-touch-icon.png' %}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon\favicon-32x32.png' %}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon\favicon-16x16.png' %}">
+        <link rel="manifest" href="{% static 'favicon\site.webmanifest' %}">
+        <link rel="mask-icon" href="{% static 'favicon\safari-pinned-tab.svg' %}" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        <!-- Cторонии стили -->
+        <!-- JustValidate -->
+        <link rel="stylesheet" href="{% static 'css\libs\justValidateTooltip.min.css' %}">
+
+        <!-- Cтили -->
+        <link rel="stylesheet" href="{% static 'css\main.css' %}">
+        <link rel="stylesheet" href="{% static 'css\header_footer\header.css' %}">
+        <link rel="stylesheet" href="{% static 'css\header_footer\footer.css' %}">
+        
+
+        {% block styles %}
+            Style
+        {% endblock styles %}
+        <link rel="stylesheet" href="{% static 'css\media.css' %}">
+
+        <!-- Сторонние библиотеки -->
+        <!-- JustValidate -->
+        <script src="{% static 'js\libs\just-validate.min.js' %}" defer></script>
+
+        <!-- Мои скрипты -->
+        <script src="{% static 'js\js-burger.js' %}" defer></script>
+        <script src="{% static 'js\js-valid.js' %}" defer></script>
+        {% block scripts %}
+            Script
+        {% endblock scripts %}
+    </head>
+
+    <body class="page">
+
+        <!-- Шапка -->
+        <header class="header">
+            <div class="container">
+                <nav class="nav">
+
+                    <!-- Лого -->
+                    <a href="{% url 'index:index' %}" class="nav__logo-link">
+                        <img src="{% static 'img\header\logo.svg' %}" alt="Logo">
+                    </a>
+
+                    <!--  Навигацию меню -->
+                    <div class="header__nav">
+                        <ul class="nav__list">
+                            <li class="nav__item"> <a href="{% url 'index:index' %}" class="nav__link"> Главная</a></li>
+                            <li class="nav__item"><a href="{% url 'index:tutorials:tutorials_list' %}" class="nav__link">Самоучители</a></li>
+                            <li class="nav__item"><a href="{% url 'index:news:news-list' %}" class="nav__link">Статьи</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Бургер кнопка -->
+                    <button class="btn-reset burger">
+                        <span class="burger__line"></span>
+                        <span class="burger__line"></span>
+                        <span class="burger__line"></span>
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main">
+
+            {% block main %}
+                Main
+            {% endblock main %}
+
+        </main>
+
+        <!-- Подвал -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer__wrapper">
+
+                    <!-- Лого / Cсылка на нас / copyright -->
+                    <div class="footer__links-block">
+
+                        <img src="{% static 'img\footer\footer-logo.svg' %}" alt="footer__logo" class="footer__logo">
+
+                        <div class="footer__links">
+                            <a href="#" class="footer__social"><img src="img/footer/ellipse.svg" alt=""></a>
+                            <a href="#" class="footer__social"><img src="img/footer/ellipse.svg" alt=""></a>
+                            <a href="#" class="footer__social"><img src="img/footer/ellipse.svg" alt=""></a>
+                        </div>
+
+                        <p class="footer__copyright footer__descr ">@2023 Проект студии Жгучий</p>
+
+                    </div>
+
+                    <!-- Ссылка на страницы -->
+                    <div class="footer__pages footer__descr">
+                        <a href="{% url 'index:index' %}" class="footer__link">Главная</a>
+                        <a href="{% url 'index:tutorials:tutorials_list' %}" class="footer__link">Самоучители</a>
+                        {% comment %} <a href="#" class="footer__link">Самоучитель по питону</a>
+                        <a href="#" class="footer__link">Самоучитель по c++</a>
+                        <a href="#" class="footer__link">Самоучитель по sql</a> {% endcomment %}
+                        <a href="{% url 'index:news:news-list' %}" class="footer__link">Статьи</a>
+                    </div>
+
+                    <!-- Формы обратной связи -->
+                    <form class="form js-form-connection" method="post" action="{% url 'index:send_email' %}">
+                        {% csrf_token %} 
+                        {{ form.as_p }}
+                        
+                        <label class="form__descr footer__descr" for="textarea">Нашли недочеты пишите нам на&nbsp;почту</label>
+
+                        <div class="just-validate-tooltip-container">
+                            <input  type="text" name ="name" data-validate-field="name" placeholder = "Ваше имя"    class="form__input footer__descr input">
+                        </div>
+                        
+                        <div class="just-validate-tooltip-container">
+                            <input  type="textarea"  name = "textarea" data-validate-field="textarea"  placeholder = "Ваше сообщене" class="form__input  footer__descr textarea">
+                        </div>
+
+                        <button type="submit" class="form__btn btn">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </footer>
+
+
+        {% if messages %}
+            <script>
+                {% for message in messages %}
+                    alert("{{ message }}");
+                {% endfor %}
+            </script>
+        {% endif %}
+    
+
+    </body>
+
+</html>

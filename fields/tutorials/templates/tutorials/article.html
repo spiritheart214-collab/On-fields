@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+Самоучитель - статья
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'tutorials\css\one-news-page.css' %}">
+    <link rel="stylesheet" href="{% static 'tutorials\css\tuorial-page.css' %}">
+{% endblock styles %}
+    
+{% block scripts %}
+
+{% endblock scripts %}
+
+{% block main %}
+    <section class="tutorial-info">
+        <div class="container__small">
+            <div class="tutorial-info__content">
+                <h1 class="tutorial-info__title">
+                    {{ article.title }}
+                </h1>
+
+                <p class="tutorial-info__descr info__txt section-descr">
+                    {{ article.descr | safe}}
+                </p>       
+        </div>
+    </section>
+{% endblock main %}

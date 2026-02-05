@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+    Новости и статьи
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'tutorials\css\selflearn.css' %}"> 
+    <link rel="stylesheet" href="{% static 'tutorials\css\selflearn-in.css' %}">
+    <link rel="stylesheet" href="{% static 'css\blocks\pages-nav.css' %}">
+    <link rel="stylesheet" href="{% static 'news\css\news-list-page.css' %}">
+{% endblock styles %}
+    
+{% block scripts %}
+
+{% endblock scripts %}
+
+{% block main %}
+    <section class="selfEducation section-offset">
+
+        <div class="container">
+
+            <!-- Заголовок -->
+            <h2 class="news-page__title selfEducation__title">Новости и&nbsp;статьи</h2>
+
+            <div class="center">
+
+                {% if news %}
+                    <div class="news">
+                        {% for preview in news %}
+                            {% for article in preview.news_article_set.all %}
+                                    <a href="{% url 'index:news:news-detail' slug=article.slug %}" class="news-card small-img">
+                                        <div class="news-card__top-content">
+                                            <button class="btn news-card__btn">{{ preview.title }}</button>
+                                            <time class="news-card__time section-descr white">{{ article.pub_date }}</time>
+                                        </div>
+                                        <div class="news-card__buttom-content">
+                                            <h3 class="news-card__title section-title white">{{ article.title }}</h3>
+                                            <p class="news-card__descr section-descr white">{{ article.short_descr }}</p>
+                                        </div>
+                                        <img class="news-card__bg-img" src="{{ article.photo.url }}" alt="{{ article.title }}">
+                                    </a>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <h3>No news yet</h3>
+                {% endif %}
+                
+            </div>
+            
+            {% comment %} {% include  'pagination.html' %} {% endcomment %}
+
+        </div>
+
+    </section>
+{% endblock main %}

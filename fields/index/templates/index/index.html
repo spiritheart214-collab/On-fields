@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+    Главная
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'index\css\index.css' %}">
+    <link rel="stylesheet" href="{% static 'index\css\accordion.css' %}">
+{% endblock styles %}
+    
+{% block scripts %}
+    <script src="{% static 'index\js\js-accordion-anim.js' %}" defer></script>
+{% endblock scripts %}
+
+
+
+{% block main %}
+    <!-- Главная секция "Cамоучитель" -->
+    <section class="hero section-offset">
+        <div class="container">
+            <div class="hero__wrapper">
+
+                <div class="hero__content">
+                    <h1 class="hero__title">Cамоучитель по&nbsp;языкам программирования</h1>
+
+                    <p class="hero-descr section-descr">
+                        Программирование&nbsp;&mdash; это сложно. Основные правила,
+                        на&nbsp;которых все строится, очень просты, но&nbsp;по&nbsp;мере
+                        разработки программа сама начинает вводить свои правила и&nbsp;законы.
+                        Таким образом, программист строит лабиринт, в&nbsp;котором сам&nbsp;же
+                        может и&nbsp;потеряться.
+                    </p>
+
+                    <div class="quote">
+                        <svg class="quote__img" width="64" height="64" viewBox="0 0 64 64" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15.9997 45.3333H23.9997L29.333 34.6667V18.6667H13.333V34.6667H21.333L15.9997 45.3333ZM37.333 45.3333H45.333L50.6663 34.6667V18.6667H34.6663V34.6667H42.6663L37.333 45.3333Z"
+                                fill="#B7E5FC" />
+                        </svg>
+
+                        <p class="quote__author">Marijn Haverbeke</p>
+                    </div>
+                </div>
+
+                <img src="{% static 'index\img\languages_of_proggraming.jpg' %}" alt="langueges of proggramming"
+                    class="hero__img">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Секция о проекте -->
+    <section class="about-project section-offset ">
+        <div class="container">
+            <div class="about-project__wrapper">
+
+                <h2 class="about-project__title section-title">
+                    О&nbsp;проекте
+                </h2>
+
+                <div class="about-project__content">
+
+                    <p class="about-project__descr section-descr">
+                        На&nbsp;полях&nbsp;&mdash; сайт предназначен для начинающих
+                        IT-специалистов, желающих самостоятельно изучать
+                        программирование. Здесь регулярно публикуются полезные
+                        материалы по&nbsp;программированию.
+                    </p>
+
+                    <ul class="about-project__list">
+                        <li class="about-project__item section-descr">учебные материалы, уроки, курсы, видеоуроки, видеокурсы;
+                        </li>
+                        <li class="about-project__item section-descr">книги, учебники, самоучители;</li>
+                        <li class="about-project__item section-descr">примеры кода, скрипты;</li>
+                        <li class="about-project__item section-descr" >задачи;</li>
+                    </ul>
+
+                    <p class="about-project__descr section-descr">
+                        Сайт разрабатывается и&nbsp;обновляется собственными силами.
+                        Наша цель&nbsp;&mdash; предоставить информацию, которая
+                        поможет лучше понять программирование. Обратите внимание,
+                        что представленная на&nbsp;сайте информация была взята
+                        из&nbsp;открытых источников интернета и&nbsp;скопирована
+                        и&nbsp;переведена. Она предназначена исключительно для
+                        просветительских целей.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция  самоучители-->
+    <section class="tutorials section-offset" >
+        <div class="container">
+            <div class="tutorials__wrapper">
+                <h2 class="tutorials__title section-title">самоучители</h2>
+                {% if tutorials %}
+                    <div class="tutorials__content">
+                        {% for tutorial in tutorials %}
+                        <div class="tutor-card">
+                            <div class="tutor-card__content">
+                                <h3 class="tutor-card__title section-title"> {{ tutorial.title }} </h3>
+                                <p class="tutor-card__descr section-descr-2"> {{ tutorial.short_descr }} </p>
+                                <a href="{% url 'index:tutorials:sub_tutorials' slug_tutorial=tutorial.slug_tutorial %}"><button class="btn tutor-card__btn">Перейти учиться</button></a>
+                            </div>
+                            <img src="{{ tutorial.photo.url }}" alt="img" class="tutor-card__img">
+                        </div>
+                        {% endfor %}
+                        {% comment %} <button class="tutorials__btn btn">другие самоучители</button> {% endcomment %}
+                    </div>
+                {% else %}
+                    <h3>No tutorials yet</h3>
+                {% endif %}
+                
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция новости и статьи -->
+    <section class="news section-offset">
+        <div class="container">
+            <div class="news__wrapper">
+
+                <h2 class="news__title section-title">Новости и&nbsp;статьи</h2>
+
+                {% if news %}
+                    {% for preview in news %}
+                        {% for article in preview.news_article_set.all %}
+                            <a href = "{% url 'index:news:news-detail' slug=article.slug %}" class="news-card small-img">
+                                <div class="news-card__top-content">
+                                    <button class="btn news-card__btn">{{ preview.title }}</button>
+                                    <time class="news-card__time section-descr">{{ article.pub_date }}</time>
+                                </div>
+                                <div class="news-card__buttom-content">
+                                    <h3 class="news-card__title section-title ">{{ article.title }}</h3>
+                                    <p class="news-card__descr section-descr">
+                                        {{ article.short_descr }}
+                                    </p>
+                                </div>
+                                <img class="news-card__bg-img" src="{{ article.photo.url }}" alt="{{ article.title }}">
+                            </a>
+                        {% endfor %}
+                    {% endfor %}
+                {% else %}
+                    <h3>No news yet</h3>
+                {% endif %}
+                
+                {% comment %} <button class="news__btn btn">другие самоучители</button> {% endcomment %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция вопрос - ответ -->
+    <section class="questions section-offset">
+        <div class="container">
+            <div class="questions__wrapper">
+                <h2 class="questions__title section-title">Вопросы и&nbsp;ответы</h2>
+                <div class="accordion__wrapper">
+
+                    {% if faqs %}
+                        <ul class="accordion__list">
+                            {% for faq in faqs %}
+                                <li class="accordion">
+                                    <button class="accordion__control" aria-expanded="false">
+                                        <span class="accordion__title section-title"> {{ faq.questions }} </span>
+                                        <span class="accordion__icon"></span>
+                                    </button>
+                                    <div class="accordion__content" aria-hidden="true">
+                                        <p class="section-descr-2">
+                                            {{ faq.answer }}
+                                        </p>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        <h3>No FAQS yet</h3>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock main %}

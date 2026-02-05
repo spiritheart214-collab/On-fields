@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title %}
+    Самоучитель - статьи
+{% endblock title %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'tutorials\css\selflearn.css' %}"> 
+    <link rel="stylesheet" href="{% static 'tutorials\css\selflearn-in.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css\blocks\pages-nav.css' %}">
+{% endblock styles %}
+    
+{% block scripts %}
+
+{% endblock scripts %}
+
+{% block main %}
+    <section class="selfEducation section-offset">
+
+        <div class="container">
+
+            <div class="selfEducation__wrapper">
+
+                <h2 class="selfEducation__title">{{ subsection.title }}</h2>
+                <p class="selfEducation__descr section-descr lesson__offset">
+                    {{ subsection.descr }}
+                </p>
+            </div>
+
+            {% if articles %}
+                <ul class="lesson__list">
+
+                    {% for article in articles  %}
+                        <li class="lesson__item">
+                            <h3 class="lesson__title section-title"> {{ article.title }} </h3>
+
+                            <div class="lesson__datetime-wrapper">
+                                <p class="lesson__name section-descr">{{ article.id_subsection }}</p>
+                                <div class="lesson__circle"></div>
+                                <time datetime="2023-10-12" class="lesson__date section-descr">{{ article.pub_date }}</time>
+                            </div>
+
+                            <p class="lesson__descr section-descr">
+                                {{article.short_descr}}
+                            </p>
+
+                            <a href="{% url 'index:tutorials:article' slug_tutorial=tutorial.slug_tutorial slug_sub_tutorial=subsection.slug_sub_tutorial slug_article=article.slug_article   %}" class="lesson__link">
+                                <button class="lesson__btn btn btn__dark">Читать далее</button>
+                            </a>
+                            
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+            <h3>No tutorials yet</h3>
+            {% endif %}
+            
+            {% comment %} {% include  'pagination.html' %} {% endcomment %}
+
+        </div>
+
+    </section>
+{% endblock main %}
